@@ -1,0 +1,781 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.hsu-ifa.de/ontologies/EU_2012-923#"
+     xml:base="http://www.hsu-ifa.de/ontologies/EU_2012-923"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923">
+        <rdfs:comment>COMMISSION IMPLEMENTING REGULATION (EU) No 923/2012
+of 26 September 2012
+laying down the common rules of the air and operational provisions regarding services and procedures in air navigation and amending Implementing Regulation (EU) No 1035/2011 and Regulations (EC) No 1265/2007, (EC) No 1794/2006, (EC) No 730/2006, (EC) No 1033/2006 and (EU) No 255/2010</rdfs:comment>
+        <rdfs:comment>This ODP was created with a focus on the change of location of objects</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Approach_Converging_Left -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Approach_Converging_Left">
+        <owl:inverseOf rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Approach_Converging_Right"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Approach_Converging_Right -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Approach_Converging_Right">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Approach_Front -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Approach_Front">
+        <owl:equivalentProperty rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_overtaking"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Approach_Head-On -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Approach_Head-On">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Approach_Rear -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Approach_Rear">
+        <owl:equivalentProperty rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_being_overtaken"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Proximity -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Proximity">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Proximity"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#is_at -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_at">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#AirspaceClass"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Runway-Holding-Position"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#is_being_overtaken -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_being_overtaken"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#is_being_towed -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_being_towed">
+        <owl:inverseOf rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_towing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#is_flying_inside -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_flying_inside">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#ProhibitedArea"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#RestrictedArea"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#is_giving_way_to -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_giving_way_to">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#is_overtaking -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_overtaking">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#is_passing_over -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_passing_over">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#is_passing_under -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_passing_under">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#is_towing -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_towing">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Vehicle"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#moves_on -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#moves_on">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Manoeuvring_Area"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Air-Ground_Voice_Communication -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Air-Ground_Voice_Communication">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Altered_Course -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Altered_Course">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Altered_Heading -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Altered_Heading">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:onDatatype rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+                <owl:withRestrictions rdf:parseType="Collection">
+                    <rdf:Description>
+                        <xsd:minInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</xsd:minInclusive>
+                    </rdf:Description>
+                    <rdf:Description>
+                        <xsd:maxInclusive rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">360</xsd:maxInclusive>
+                    </rdf:Description>
+                </owl:withRestrictions>
+            </rdfs:Datatype>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Altered_Speed -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Altered_Speed"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Ceiling -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Ceiling">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#MeterologicalConditions"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#has_CollisionHazard -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#has_CollisionHazard">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Proximity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Current_Course -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Current_Course">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Current_Heading -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Current_Heading">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Current_Speed -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Current_Speed">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#has_FlightVisibility -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#has_FlightVisibility">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Flightlevel -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Flightlevel">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#has_GroundVisibility -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#has_GroundVisibility">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#MeterologicalConditions"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Height_above_Ground -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Height_above_Ground">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Height_above_MSL -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Height_above_MSL">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Height_above_Water -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Height_above_Water"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Horizontal_Distance -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Horizontal_Distance">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Proximity"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#has_MinimumFlightAltitude -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#has_MinimumFlightAltitude">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#MinimumFlightAltitude"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Right-Of-Way -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Right-Of-Way">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#has_SurfaceInSight -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#has_SurfaceInSight"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Vertical_Distance -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Vertical_Distance">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Proximity"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#has_impaired_manoeuvrability -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#has_impaired_manoeuvrability">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#is_Direction_Left -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_Direction_Left">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Altered_Heading"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#rational"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <owl:propertyDisjointWith rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_Direction_Right"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#is_Direction_Right -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_Direction_Right">
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#has_Altered_Heading"/>
+                <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#rational"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#is_Holding -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_Holding">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#is_Landing -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_Landing">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#is_Night -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_Night">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Time"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#is_Power_driven -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_Power_driven">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#is_Rolling -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_Rolling">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#is_Stopping -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_Stopping">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#is_Taking-Off -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_Taking-Off">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#is_displayed -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_displayed"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#is_heavier_than_Air -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_heavier_than_Air">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#is_operating_IFR-Mode -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_operating_IFR-Mode">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <owl:propertyDisjointWith rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_operating_VFR-Mode"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#is_operating_VFR-Mode -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_operating_VFR-Mode">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#is_supersonic_Speed -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_supersonic_Speed"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#is_switched_off -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_switched_off">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#LightedStopBar"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#is_taxiing -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_taxiing">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#is_transsonic_Speed -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#is_transsonic_Speed"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#Airship -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#Airship">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#AirspaceClass -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#AirspaceClass"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#AirspaceClass_A -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#AirspaceClass_A">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#AirspaceClass"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#AirspaceClass_B -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#AirspaceClass_B">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#AirspaceClass"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#AirspaceClass_C -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#AirspaceClass_C">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#AirspaceClass"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#AirspaceClass_D -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#AirspaceClass_D">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#AirspaceClass"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#AirspaceClass_E -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#AirspaceClass_E">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#AirspaceClass"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#AirspaceClass_F -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#AirspaceClass_F">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#AirspaceClass"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#AirspaceClass_G -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#AirspaceClass_G">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#AirspaceClass"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#Anti-Collision-Lights -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#Anti-Collision-Lights"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#Area -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#Area"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#Balloon -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#Balloon">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#City -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#City">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Area"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#Cloud -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#Cloud"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#EmergencyVehicle -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#EmergencyVehicle">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Vehicle"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#Helicopter -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#Helicopter">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#LightedStopBar -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#LightedStopBar"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#Manoeuvring_Area -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#Manoeuvring_Area"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#MeterologicalConditions -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#MeterologicalConditions"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#MinimumFlightAltitude -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#MinimumFlightAltitude"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#MountainousArea -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#MountainousArea">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Area"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#NavigationLights -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#NavigationLights"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#Obstacle -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#Obstacle"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#Open-Air_Assembly -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#Open-Air_Assembly">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Area"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#ProhibitedArea -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#ProhibitedArea">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Area"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#Proximity -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#Proximity"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#RestrictedArea -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#RestrictedArea">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Area"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#Runway-Holding-Position -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#Runway-Holding-Position"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#Sailplane -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#Sailplane">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Aircraft"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#Settlement -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#Settlement">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Area"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#Time -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#Time"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#Town -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#Town">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/EU_2012-923#Area"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#Vehicle -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#Vehicle"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/EU_2012-923#Vessel -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/EU_2012-923#Vessel"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

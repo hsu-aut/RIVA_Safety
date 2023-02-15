@@ -1,0 +1,625 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.hsu-ifa.de/ontologies/CEVNI#"
+     xml:base="http://www.hsu-ifa.de/ontologies/CEVNI"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI">
+        <rdfs:comment>CEVNI EUROPEAN CODE FOR INLAND WATERWAYS FIFTH REVISED EDITION</rdfs:comment>
+        <rdfs:comment>This ODP was created with a focus on the change of location of objects</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#Boundary_On_Portside -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#Boundary_On_Portside">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Fairway"/>
+        <owl:propertyDisjointWith rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Boundary_On_Starbord"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#Boundary_On_Starbord -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#Boundary_On_Starbord">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Fairway"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#Crossing -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#Crossing">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:comment>“Crossing”: where two vessels are approaching in a situation other than the cases referred to under (a) and (b).</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#Crossing_Ahead -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#Crossing_Ahead">
+        <rdfs:subPropertyOf rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Crossing"/>
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#Crossing_Larbord -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#Crossing_Larbord">
+        <owl:equivalentProperty rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Crossing_PortSide"/>
+        <rdfs:subPropertyOf rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Crossing"/>
+        <owl:inverseOf rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Crossing_Starbord"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#Crossing_PortSide -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#Crossing_PortSide">
+        <rdfs:subPropertyOf rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Crossing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#Crossing_Starbord -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#Crossing_Starbord">
+        <rdfs:subPropertyOf rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Crossing"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#Distance -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#Distance">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#LeavesRoomTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#LeavesRoomTo">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#HighSpeedVessel"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#Meeting -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#Meeting">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:comment>“Meeting”: where two vessels are proceeding on courses directly or almost directly opposite;</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#Navigating_Close_To_Boundary -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#Navigating_Close_To_Boundary">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Fairway"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#Overtaking -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#Overtaking">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:comment>“Overtaking”: where a vessel (the overtaking vessel) comes up to another vessel (the vessel being overtaken) from a direction more than 22.5° abaft the latter vessel’s beam and overtakes it;</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#PassindStarbord -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#PassindStarbord">
+        <rdfs:subPropertyOf rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Passing"/>
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <owl:propertyDisjointWith rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Passing_PortSide"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#Passing -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#Passing"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#Passing_PortSide -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#Passing_PortSide">
+        <rdfs:subPropertyOf rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Passing"/>
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#givesWayTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#givesWayTo">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#has_Portside -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#has_Portside">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Fairway"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Wind"/>
+        <owl:propertyDisjointWith rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#has_Starbord"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#has_Starbord -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#has_Starbord">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Fairway"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Wind"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#is_ProceedingQuickly -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#is_ProceedingQuickly">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Fairway"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#is_Proceeding_in -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#is_Proceeding_in">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Convoy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#slowDown -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#slowDown">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#Proceeding_Downstream -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#Proceeding_Downstream">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#Proceeding_Upstream -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#Proceeding_Upstream">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#Veer_Portside -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#Veer_Portside">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <owl:propertyDisjointWith rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Veer_Starbord"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#Veer_Starbord -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#Veer_Starbord">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#does_ChangeCourse -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#does_ChangeCourse">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#does_ChangeSpeed -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#does_ChangeSpeed">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#gives_Signal -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#gives_Signal">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#has_Course -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#has_Course">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#has_DangerofCollision -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#has_DangerofCollision">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#has_RiskOfCollision -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#has_RiskOfCollision">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#has_Speed -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#has_Speed">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#has_Wind_PortSide -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#has_Wind_PortSide">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <owl:propertyDisjointWith rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#has_Wind_Starbord"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#has_Wind_Starbord -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#has_Wind_Starbord">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#has_restrictedView -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#has_restrictedView">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#is_LeeWard -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#is_LeeWard">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <owl:propertyDisjointWith rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#is_WindWard"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#is_Manoeuvrable -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#is_Manoeuvrable">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#is_Narrow -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#is_Narrow">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Fairway"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#is_WindWard -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#is_WindWard">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#is_berthing -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#is_berthing">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#is_wide_enough_for_simultaneous_passage -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#is_wide_enough_for_simultaneous_passage">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Fairway"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#soundsBlast -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#soundsBlast">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#Convoy -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#Convoy">
+        <rdfs:comment>The term “convoy” means a towed convoy, a pushed convoy or a side-by-side formation;</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#Downstream -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#Downstream">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Waterway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#Fairway -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#Fairway"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#FerryBoat -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#FerryBoat">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:comment>The term “ferry-boat” means any vessel providing a transport service across a waterway, that is classed as a ferry-boat by the competent authorities. Vessels providing such a service which do not move independently shall in any case be classified as “ferry-boats”;</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#FloatingEquipment -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#FloatingEquipment">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:comment>The term “floating equipment” means floating structures carrying machinery used for work on waterways or in harbours (dredgers, elevators, derricks, cranes, etc.);</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#HighSpeedVessel -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#HighSpeedVessel">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#MotorizedVessel"/>
+        <rdfs:comment>The term “high-speed vessel” means a motorized vessel, with the exception of small craft, capable of travelling at a speed greater than 40 km/h in relation to water (for example a hydrofoil craft, a hovercraft or a multihull vessel) when this is stated in the ship’s certificate;</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#MotorizedVessel -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#MotorizedVessel">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:comment>The term “motorized vessel” means any craft using its own mechanical means of propulsion, except craft whose engines are used only to cover short distances (in harbours or at loading and unloading points) or to make them easier to handle while being towed or pushed;</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#PassengerVessel -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#PassengerVessel">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:comment>The term “passenger vessel” means a day-trip or cabin vessel constructed and equipped to carry more than 12 passengers;</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#PushedBarge -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#PushedBarge">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:comment>The term “pushed barge” means any vessel designed or specially equipped to be pushed;</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#PushedConvoy -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#PushedConvoy">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Convoy"/>
+        <rdfs:comment>The term “pushed convoy” means a rigid group of vessels, one at least of which is placed in front of the motorized vessel propelling the convoy and is known as a pusher. A convoy composed of a pusher and a pushed craft so as to permit guided articulation is also considered as rigid;</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#SailingVessel -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#SailingVessel">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:comment> The term “sailing vessel” means any vessel proceeding under sail only; a vessel proceeding under sail and making use at the same time of its own mechanical means of propulsion shall be considered as a motorized vessel;</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#ShipborneBarge -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#ShipborneBarge">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#PushedBarge"/>
+        <rdfs:comment>The term “shipborne barge” means a pushed barge designed to be carried on board seagoing vessels and to navigate on inland waterways;</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#SideBySideFormation -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#SideBySideFormation">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Convoy"/>
+        <rdfs:comment>The term “side-by-side formation” means a group consisting of vessels coupled side-by-side, none of which is placed in front of the motorized vessel propelling the formation.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#SmallCraft -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#SmallCraft">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:comment>The term “small craft” means any vessel with a hull less than 20 m long without rudder or bowsprit, except vessels built or equipped to tow, push or propel vessels other than small craft in side-by-side formation and except craft authorized to carry more than 12 passengers, ferry-boats and pushed barges;</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#SportsOrPleasureCraft -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#SportsOrPleasureCraft">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel"/>
+        <rdfs:comment>The term “sports or pleasure craft” means any vessel used for purposes of sports and recreation and not financial gain.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#TowedConvoy -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#TowedConvoy">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Convoy"/>
+        <rdfs:comment>The term “towed convoy” means any group consisting of one or more vessels, floating establishments or assemblies of floating material towed by one or more motorized vessels, the latter forming part of the convoy and being known as tugs;</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#Upstream -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#Upstream">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#Waterway"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#Vessel -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#Vessel">
+        <rdfs:comment>The term “vessel” means any inland waterway craft, including small craft and ferry-boats, as well as floating equipment and seagoing vessels;</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#WaterBike -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#WaterBike">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/CEVNI#SmallCraft"/>
+        <rdfs:comment>The term “water bike” means any small craft using its own mechanical means of propulsion, which is able to carry one or more persons and built or designed to be used for skiing over the water or performing figures, for example, waterbobs, waterscooters, jetbikes, jetski and other similar craft;</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#Waterway -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#Waterway"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/CEVNI#Wind -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/CEVNI#Wind"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
