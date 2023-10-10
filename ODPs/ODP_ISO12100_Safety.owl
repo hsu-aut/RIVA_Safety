@@ -1,0 +1,187 @@
+@prefix : <http://www.hsu-ifa.de/ontologies/Safety> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.hsu-ifa.de/ontologies/ISOSafety> .
+
+<http://www.hsu-ifa.de/ontologies/ISOSafety> rdf:type owl:Ontology ;
+                                              rdfs:comment "ODP to describe Safety in a systemic Context based on ISO 12100:2010" .
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.hsu-ifa.de/ontologies/ISOSafety#hasCatastrophicHarm
+:hasCatastrophicHarm rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf :hasHarm ;
+                     rdfs:domain owl:Thing ;
+                     rdfs:range xsd:string .
+
+
+###  http://www.hsu-ifa.de/ontologies/ISOSafety#hasElectricalHazard
+:hasElectricalHazard rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf :hasHazard ;
+                     rdfs:domain owl:Thing ;
+                     rdfs:range xsd:string .
+
+
+###  http://www.hsu-ifa.de/ontologies/ISOSafety#hasEnvironmentRelatedHazard
+:hasEnvironmentRelatedHazard rdf:type owl:DatatypeProperty ;
+                             rdfs:subPropertyOf :hasHazard ;
+                             rdfs:domain owl:Thing ;
+                             rdfs:range xsd:string .
+
+
+###  http://www.hsu-ifa.de/ontologies/ISOSafety#hasErgonomicHazard
+:hasErgonomicHazard rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf :hasHazard ;
+                    rdfs:domain owl:Thing ;
+                    rdfs:range xsd:string .
+
+
+###  http://www.hsu-ifa.de/ontologies/ISOSafety#hasHarm
+:hasHarm rdf:type owl:DatatypeProperty ;
+         rdfs:domain owl:Thing ;
+         rdfs:range xsd:string .
+
+
+###  http://www.hsu-ifa.de/ontologies/ISOSafety#hasHazard
+:hasHazard rdf:type owl:DatatypeProperty ;
+           rdfs:domain owl:Thing ;
+           rdfs:range xsd:string .
+
+
+###  http://www.hsu-ifa.de/ontologies/ISOSafety#hasLevelOfRisk
+:hasLevelOfRisk rdf:type owl:DatatypeProperty ;
+                rdfs:domain owl:Thing ;
+                rdfs:range xsd:string .
+
+
+###  http://www.hsu-ifa.de/ontologies/ISOSafety#hasMajorHarm
+:hasMajorHarm rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :hasHarm ;
+              rdfs:domain owl:Thing ;
+              rdfs:range xsd:string .
+
+
+###  http://www.hsu-ifa.de/ontologies/ISOSafety#hasMaterialOrSubstanceHazard
+:hasMaterialOrSubstanceHazard rdf:type owl:DatatypeProperty ;
+                              rdfs:subPropertyOf :hasHazard ;
+                              rdfs:domain owl:Thing ;
+                              rdfs:range xsd:string .
+
+
+###  http://www.hsu-ifa.de/ontologies/ISOSafety#hasMechanicalHazard
+:hasMechanicalHazard rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf :hasHazard ;
+                     rdfs:domain owl:Thing ;
+                     rdfs:range xsd:string .
+
+
+###  http://www.hsu-ifa.de/ontologies/ISOSafety#hasMinorHarm
+:hasMinorHarm rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf :hasHarm ;
+              rdfs:domain owl:Thing ;
+              rdfs:range xsd:string .
+
+
+###  http://www.hsu-ifa.de/ontologies/ISOSafety#hasNegligibleHarm
+:hasNegligibleHarm rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf :hasHarm ;
+                   rdfs:domain owl:Thing ;
+                   rdfs:range xsd:string .
+
+
+###  http://www.hsu-ifa.de/ontologies/ISOSafety#hasNoiseHazard
+:hasNoiseHazard rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf :hasHazard ;
+                rdfs:domain owl:Thing ;
+                rdfs:range xsd:string .
+
+
+###  http://www.hsu-ifa.de/ontologies/ISOSafety#hasRadiationHazard
+:hasRadiationHazard rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf :hasHazard ;
+                    rdfs:domain owl:Thing ;
+                    rdfs:range xsd:string .
+
+
+###  http://www.hsu-ifa.de/ontologies/ISOSafety#hasRiskLevelHigh
+:hasRiskLevelHigh rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf :hasLevelOfRisk ;
+                  rdfs:domain owl:Thing .
+
+
+###  http://www.hsu-ifa.de/ontologies/ISOSafety#hasRiskLevelLow
+:hasRiskLevelLow rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf :hasLevelOfRisk ;
+                 rdfs:domain owl:Thing .
+
+
+###  http://www.hsu-ifa.de/ontologies/ISOSafety#hasRiskLevelMedium
+:hasRiskLevelMedium rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf :hasLevelOfRisk ;
+                    rdfs:domain owl:Thing .
+
+
+###  http://www.hsu-ifa.de/ontologies/ISOSafety#hasRiskLevelVeryHigh
+:hasRiskLevelVeryHigh rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf :hasLevelOfRisk ;
+                      rdfs:domain owl:Thing .
+
+
+###  http://www.hsu-ifa.de/ontologies/ISOSafety#hasSeriousHarm
+:hasSeriousHarm rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf :hasHarm ;
+                rdfs:domain owl:Thing ;
+                rdfs:range xsd:string .
+
+
+###  http://www.hsu-ifa.de/ontologies/ISOSafety#hasThermalHazard
+:hasThermalHazard rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf :hasHazard ;
+                  rdfs:domain owl:Thing ;
+                  rdfs:range xsd:string .
+
+
+###  http://www.hsu-ifa.de/ontologies/ISOSafety#hasVibrationHazard
+:hasVibrationHazard rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf :hasHazard ;
+                    rdfs:domain owl:Thing ;
+                    rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.hsu-ifa.de/ontologies/ISOSafety#Danger
+:Danger rdf:type owl:Class ;
+        rdfs:subClassOf :Risk ;
+        owl:disjointWith :Safety ;
+        rdfs:comment "Danger is a factual situation where the risk is greater than the limitatuing risk." .
+
+
+###  http://www.hsu-ifa.de/ontologies/ISOSafety#Harm
+:Harm rdf:type owl:Class ;
+      rdfs:comment "injury or damage to the health of people, or damage to property or the environment" .
+
+
+###  http://www.hsu-ifa.de/ontologies/ISOSafety#Hazard
+:Hazard rdf:type owl:Class ;
+        rdfs:comment "potential source of harm" .
+
+
+###  http://www.hsu-ifa.de/ontologies/ISOSafety#Risk
+:Risk rdf:type owl:Class ;
+      rdfs:comment "combination of the probability of occurrence of harm (3.1) and the severity of that harm" .
+
+
+###  http://www.hsu-ifa.de/ontologies/ISOSafety#Safety
+:Safety rdf:type owl:Class ;
+        rdfs:comment "Freedom from risk which is not tolerable" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
