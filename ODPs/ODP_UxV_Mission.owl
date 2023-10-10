@@ -1,0 +1,406 @@
+@prefix : <http://www.hsu-ifa.de/ontologies/UxVMission#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix swrl: <http://www.w3.org/2003/11/swrl#> .
+@prefix swrla: <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#> .
+@prefix swrlb: <http://www.w3.org/2003/11/swrlb#> .
+@prefix UxVMission: <http://www.hsu-ifa.de/ontologies/UxVMission#> .
+@base <http://www.hsu-ifa.de/ontologies/UxVMission> .
+
+<http://www.hsu-ifa.de/ontologies/UxVMission> rdf:type owl:Ontology ;
+                                               rdfs:comment "ODP do describe the Mission-Parameters for an (autonomous) UxV" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled
+swrla:isRuleEnabled rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.hsu-ifa.de/ontologies/UxVMission#hasConcurrentGoal
+UxVMission:hasConcurrentGoal rdf:type owl:ObjectProperty ,
+                                      owl:SymmetricProperty ,
+                                      owl:IrreflexiveProperty ;
+                             rdfs:domain UxVMission:Goal ;
+                             rdfs:range UxVMission:Goal ;
+                             rdfs:comment "Sequential Relation to a parallel running Goal" .
+
+
+###  http://www.hsu-ifa.de/ontologies/UxVMission#hasGeoFence
+UxVMission:hasGeoFence rdf:type owl:ObjectProperty ,
+                                owl:FunctionalProperty ;
+                       rdfs:domain UxVMission:Mission ;
+                       rdfs:range UxVMission:Constraint ,
+                                  UxVMission:GeoFence ;
+                       rdfs:comment "Relation of Mission to Geofence. A Mission has exactly one Geofence" .
+
+
+###  http://www.hsu-ifa.de/ontologies/UxVMission#hasGoal
+UxVMission:hasGoal rdf:type owl:ObjectProperty ,
+                            owl:InverseFunctionalProperty ,
+                            owl:IrreflexiveProperty ;
+                   rdfs:domain UxVMission:Mission ;
+                   rdfs:range UxVMission:Goal ;
+                   rdfs:comment "Relation of Mission to Goal. One Mission has at least one Goal" .
+
+
+###  http://www.hsu-ifa.de/ontologies/UxVMission#hasMission
+UxVMission:hasMission rdf:type owl:ObjectProperty ,
+                               owl:FunctionalProperty ,
+                               owl:IrreflexiveProperty ;
+                      rdfs:domain UxVMission:UxV ;
+                      rdfs:range UxVMission:Mission ;
+                      rdfs:comment "Realtion of UxV to Mission. An UxV has one Mission at a time" .
+
+
+###  http://www.hsu-ifa.de/ontologies/UxVMission#hasPreceedingGoal
+UxVMission:hasPreceedingGoal rdf:type owl:ObjectProperty ;
+                             owl:inverseOf UxVMission:hasSubsequentGoal ;
+                             rdf:type owl:FunctionalProperty ,
+                                      owl:AsymmetricProperty ,
+                                      owl:IrreflexiveProperty ;
+                             rdfs:domain UxVMission:Goal ;
+                             rdfs:range UxVMission:Goal ;
+                             rdfs:comment "Sequential Relation to Prior Goal" .
+
+
+###  http://www.hsu-ifa.de/ontologies/UxVMission#hasSLP
+UxVMission:hasSLP rdf:type owl:ObjectProperty ,
+                           owl:FunctionalProperty ,
+                           owl:IrreflexiveProperty ;
+                  rdfs:domain UxVMission:Mission ;
+                  rdfs:range UxVMission:Constraint ,
+                             UxVMission:SafetyLandingPoint ;
+                  rdfs:comment "Relation of Mission to Safety Landing Point. A Mission has exactly one SLP" .
+
+
+###  http://www.hsu-ifa.de/ontologies/UxVMission#hasSubsequentGoal
+UxVMission:hasSubsequentGoal rdf:type owl:ObjectProperty ,
+                                      owl:FunctionalProperty ,
+                                      owl:AsymmetricProperty ,
+                                      owl:IrreflexiveProperty ;
+                             rdfs:domain UxVMission:Goal ;
+                             rdfs:range UxVMission:Goal ;
+                             rdfs:comment "Sequential Relation to Following Goal" .
+
+
+###  http://www.hsu-ifa.de/ontologies/UxVMission#isWithinGeofence
+UxVMission:isWithinGeofence rdf:type owl:ObjectProperty ,
+                                     owl:FunctionalProperty ,
+                                     owl:IrreflexiveProperty ;
+                            rdfs:domain UxVMission:Goal ,
+                                        UxVMission:SafetyLandingPoint ;
+                            rdfs:range UxVMission:GeoFence .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.hsu-ifa.de/ontologies/UxVMission#hasGeoFenceandSLP
+UxVMission:hasGeoFenceandSLP rdf:type owl:DatatypeProperty ,
+                                      owl:FunctionalProperty ;
+                             rdfs:domain UxVMission:Mission ;
+                             rdfs:range xsd:boolean ;
+                             rdfs:comment "Checks if Mission has GeoFence and SLP. Automatically set by Rule" .
+
+
+###  http://www.hsu-ifa.de/ontologies/UxVMission#isAchievableWithoutViolations
+UxVMission:isAchievableWithoutViolations rdf:type owl:DatatypeProperty ,
+                                                  owl:FunctionalProperty ;
+                                         rdfs:domain UxVMission:Goal ;
+                                         rdfs:range xsd:boolean .
+
+
+###  http://www.hsu-ifa.de/ontologies/UxVMission#isValidMission
+UxVMission:isValidMission rdf:type owl:DatatypeProperty ,
+                                   owl:FunctionalProperty ;
+                          rdfs:domain UxVMission:Mission ;
+                          rdfs:range xsd:boolean .
+
+
+###  http://www.hsu-ifa.de/ontologies/UxVMission#isWithinMissionGeoFence
+UxVMission:isWithinMissionGeoFence rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain UxVMission:Goal ,
+                                               UxVMission:SafetyLandingPoint ;
+                                   rdfs:range xsd:boolean .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.hsu-ifa.de/ontologies/UxVMission#Constraint
+UxVMission:Constraint rdf:type owl:Class ;
+                      rdfs:comment "Constraint of a Mission. A Constarint is something that must not be achieved" .
+
+
+###  http://www.hsu-ifa.de/ontologies/UxVMission#GeoFence
+UxVMission:GeoFence rdf:type owl:Class ;
+                    rdfs:subClassOf UxVMission:Constraint ;
+                    rdfs:comment "Geofence of a Mission describes the maximum Operating Area of the UxV. It must not be left" .
+
+
+###  http://www.hsu-ifa.de/ontologies/UxVMission#Goal
+UxVMission:Goal rdf:type owl:Class ;
+                rdfs:comment "Goal of a Mission. A Goal is something that has to be achieved" .
+
+
+###  http://www.hsu-ifa.de/ontologies/UxVMission#Mission
+UxVMission:Mission rdf:type owl:Class ;
+                   rdfs:comment "Mission of an UxV. A mission Consists of Goals and Constraints" .
+
+
+###  http://www.hsu-ifa.de/ontologies/UxVMission#SafetyLandingPoint
+UxVMission:SafetyLandingPoint rdf:type owl:Class ;
+                              rdfs:subClassOf UxVMission:Constraint ;
+                              rdfs:comment "The Safety Landing Point (SLP) is the Position where the UxV goes in Case of an Emergency" .
+
+
+###  http://www.hsu-ifa.de/ontologies/UxVMission#UxV
+UxVMission:UxV rdf:type owl:Class ;
+               rdfs:comment "A UxV conducts a Mission. A UxV is an Unmanned (Air/Water/Land) Vehicle" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.hsu-ifa.de/ontologies/UxVMission#MissionA
+UxVMission:MissionA rdf:type owl:NamedIndividual ,
+                             UxVMission:Mission ;
+                    UxVMission:hasGeoFence UxVMission:gf1 ;
+                    UxVMission:hasSLP UxVMission:slp1 .
+
+
+###  http://www.hsu-ifa.de/ontologies/UxVMission#gf1
+UxVMission:gf1 rdf:type owl:NamedIndividual ,
+                        UxVMission:Constraint ,
+                        UxVMission:GeoFence .
+
+
+###  http://www.hsu-ifa.de/ontologies/UxVMission#slp1
+UxVMission:slp1 rdf:type owl:NamedIndividual ,
+                         UxVMission:Constraint ,
+                         UxVMission:SafetyLandingPoint .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+:m rdf:type swrl:Variable .
+
+:gf rdf:type swrl:Variable .
+
+:slp rdf:type swrl:Variable .
+
+:goal rdf:type swrl:Variable .
+
+:goal2 rdf:type swrl:Variable .
+
+:goal1 rdf:type swrl:Variable .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment "Check if Mission has Geofence and SLP"^^xsd:string ;
+   rdfs:label "Mission with GF and SLP"^^xsd:string ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate UxVMission:Mission ;
+                           swrl:argument1 :m
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:ClassAtom ;
+                                      swrl:classPredicate UxVMission:GeoFence ;
+                                      swrl:argument1 :gf
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                 swrl:propertyPredicate UxVMission:hasGeoFence ;
+                                                 swrl:argument1 :m ;
+                                                 swrl:argument2 :gf
+                                               ] ;
+                                     rdf:rest [ rdf:type swrl:AtomList ;
+                                                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                            swrl:propertyPredicate UxVMission:hasSLP ;
+                                                            swrl:argument1 :m ;
+                                                            swrl:argument2 :slp
+                                                          ] ;
+                                                rdf:rest [ rdf:type swrl:AtomList ;
+                                                           rdf:first [ rdf:type swrl:ClassAtom ;
+                                                                       swrl:classPredicate UxVMission:SafetyLandingPoint ;
+                                                                       swrl:argument1 :slp
+                                                                     ] ;
+                                                           rdf:rest rdf:nil
+                                                         ]
+                                              ]
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                           swrl:propertyPredicate UxVMission:hasGeoFenceandSLP ;
+                           swrl:argument1 :m ;
+                           swrl:argument2 "true"^^xsd:boolean
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment "A Mission is invlaid if one or more Goals are not within Geofence"^^xsd:string ;
+   rdfs:label "Valid Mission Goal within GF"^^xsd:string ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                           swrl:propertyPredicate UxVMission:hasGoal ;
+                           swrl:argument1 :m ;
+                           swrl:argument2 :goal
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:ClassAtom ;
+                                      swrl:classPredicate UxVMission:Mission ;
+                                      swrl:argument1 :m
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                                 swrl:propertyPredicate UxVMission:isWithinMissionGeoFence ;
+                                                 swrl:argument1 :goal ;
+                                                 swrl:argument2 "false"^^xsd:boolean
+                                               ] ;
+                                     rdf:rest rdf:nil
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                           swrl:propertyPredicate UxVMission:isValidMission ;
+                           swrl:argument1 :m ;
+                           swrl:argument2 "false"^^xsd:boolean
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment "A Mission is invlaid if one or more Goals are not achievable without violating Constraints"^^xsd:string ;
+   rdfs:label "Valid Mission Achievable Goals"^^xsd:string ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate UxVMission:Mission ;
+                           swrl:argument1 :m
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                      swrl:propertyPredicate UxVMission:isAchievableWithoutViolations ;
+                                      swrl:argument1 :goal2 ;
+                                      swrl:argument2 "false"^^xsd:boolean
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                 swrl:propertyPredicate UxVMission:hasSubsequentGoal ;
+                                                 swrl:argument1 :goal1 ;
+                                                 swrl:argument2 :goal2
+                                               ] ;
+                                     rdf:rest [ rdf:type swrl:AtomList ;
+                                                rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                            swrl:propertyPredicate UxVMission:hasGoal ;
+                                                            swrl:argument1 :m ;
+                                                            swrl:argument2 :goal2
+                                                          ] ;
+                                                rdf:rest [ rdf:type swrl:AtomList ;
+                                                           rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                                                       swrl:propertyPredicate UxVMission:hasGoal ;
+                                                                       swrl:argument1 :m ;
+                                                                       swrl:argument2 :goal1
+                                                                     ] ;
+                                                           rdf:rest rdf:nil
+                                                         ]
+                                              ]
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                           swrl:propertyPredicate UxVMission:isValidMission ;
+                           swrl:argument1 :m ;
+                           swrl:argument2 "false"^^xsd:boolean
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment "A Mission is invlaid if SLP is not within Geofence"^^xsd:string ;
+   rdfs:label "Valid Mission SLP within GF"^^xsd:string ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate UxVMission:Mission ;
+                           swrl:argument1 :m
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:IndividualPropertyAtom ;
+                                      swrl:propertyPredicate UxVMission:hasSLP ;
+                                      swrl:argument1 :m ;
+                                      swrl:argument2 :slp
+                                    ] ;
+                          rdf:rest [ rdf:type swrl:AtomList ;
+                                     rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                                 swrl:propertyPredicate UxVMission:isWithinMissionGeoFence ;
+                                                 swrl:argument1 :slp ;
+                                                 swrl:argument2 "false"^^xsd:boolean
+                                               ] ;
+                                     rdf:rest rdf:nil
+                                   ]
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                           swrl:propertyPredicate UxVMission:isValidMission ;
+                           swrl:argument1 :m ;
+                           swrl:argument2 "false"^^xsd:boolean
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+[ swrla:isRuleEnabled "true"^^xsd:boolean ;
+   rdfs:comment "A Mission is invlaid if it has no Geofence and SLP"^^xsd:string ;
+   rdfs:label "Valid Mission GF SLP"^^xsd:string ;
+   rdf:type swrl:Imp ;
+   swrl:body [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:ClassAtom ;
+                           swrl:classPredicate UxVMission:Mission ;
+                           swrl:argument1 :m
+                         ] ;
+               rdf:rest [ rdf:type swrl:AtomList ;
+                          rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                                      swrl:propertyPredicate UxVMission:hasGeoFenceandSLP ;
+                                      swrl:argument1 :m ;
+                                      swrl:argument2 "false"^^xsd:boolean
+                                    ] ;
+                          rdf:rest rdf:nil
+                        ]
+             ] ;
+   swrl:head [ rdf:type swrl:AtomList ;
+               rdf:first [ rdf:type swrl:DatavaluedPropertyAtom ;
+                           swrl:propertyPredicate UxVMission:isValidMission ;
+                           swrl:argument1 :m ;
+                           swrl:argument2 "false"^^xsd:boolean
+                         ] ;
+               rdf:rest rdf:nil
+             ]
+ ] .
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
