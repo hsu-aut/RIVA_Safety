@@ -7,10 +7,10 @@
 @base <http://www.hsu-ifa.de/ontologies/ApplicationOntology> .
 
 <http://www.hsu-ifa.de/ontologies/ApplicationOntology> rdf:type owl:Ontology ;
-                                                        owl:imports <http://www.hsu-ifa.de/ontologies/ISO-12100_Safety> ,
-                                                                    <http://www.hsu-ifa.de/ontologies/UxVMission> ,
-                                                                    <http://www.w3.org/2003/01/geo/wgs84_pos> ;
-                                                        rdfs:comment "AlignmentOntology used for Rule-Based Verification of automated and Autonomous Drones" .
+                                                        owl:imports <https://raw.githubusercontent.com/hsu-aut/RIVA_Safety/main/ODPs/ODP_ISO-12-100_Safety.owl> ,
+                                                                    <https://raw.githubusercontent.com/hsu-aut/RIVA_Safety/main/ODPs/ODP_UxV_Mission.owl> ,
+                                                                    <https://raw.githubusercontent.com/structureddynamics/Ontologies-Open-Semantic-Framework/master/wgs84/wgs84.owl> ;
+                                                        rdfs:comment "AlignmentOntology used for Rule-Based Verification of Automated and Autonomous Drones" .
 
 #################################################################
 #    Object Properties
