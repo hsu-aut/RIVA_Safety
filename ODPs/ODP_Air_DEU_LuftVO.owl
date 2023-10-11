@@ -1,0 +1,608 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.hsu-ifa.de/ontologies/LuftVO#"
+     xml:base="http://www.hsu-ifa.de/ontologies/LuftVO"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO">
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Luftverkehrsordnung (LuftVO)
+Date of Issue: 29.10.2015
+Vollzitat: &quot;Luftverkehrs-Ordnung vom 29. Oktober 2015 (BGBl. I S. 1894), die zuletzt durch Artikel 2 des Gesetzes vom 14. Juni 2021 (BGBl. I S. 1766) geändert worden ist&quot;</rdfs:comment>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This ODP was created with a focus on the change of location of objects</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#hasDistance -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#hasDistance">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#Aircraft"/>
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalObject"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#Distance"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#hasOperatingCategory -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#hasOperatingCategory">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#Drone"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#OperatingCategory"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#isDefinedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#isDefinedBy">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalZone"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalObject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#isDischarging -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#isDischarging">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#Aircraft"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#Object"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#isDropping -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#isDropping">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#Aircraft"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#Object"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#isFlyingOver -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#isFlyingOver"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#isOperatingInside -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#isOperatingInside">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#Drone"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalZone"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#isOver -->
+
+    <owl:ObjectProperty rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#isOver">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalZone"/>
+        <rdfs:range rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalObject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#hasConductedRiskAssesment -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#hasConductedRiskAssesment">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#Drone"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>particular risks of flying over federal trunk roads or railway installations have been sufficiently taken into account in the risk assessment</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#hasConsent -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#hasConsent">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#Drone"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>consent from the aviation supervision office, aerodrome flight information service or operator at the aerodrome
+consent from competent body or operator of the facility
+consent from the owner
+With air traffic control clearance in accordance with section 21 of the LuftVO</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#hasHeightAboveGround -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#hasHeightAboveGround">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#UnmannedAircraft"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>height above ground or water</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#hasLateralDistance -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#hasLateralDistance">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#Distance"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#hasLateralDistanceFromObject -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#hasLateralDistanceFromObject">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalZone"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>Lateral Distance form Object/Object-Boundaries in [m]</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#hasOperatingTime_End -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#hasOperatingTime_End">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#SwimmingPool"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#hasOperatingTime_Start -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#hasOperatingTime_Start">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#SwimmingPool"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#hasRecordingEquipment -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#hasRecordingEquipment">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#UnmannedAircraft"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+        <rdfs:comment>equipment of unmanned aircraft has no functions for optical or acoustic recording and transmission and no functions for recording and transmitting radio signals from third parties</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#hasTakeOffMass -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#hasTakeOffMass">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#UnmannedAircraft"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#float"/>
+        <rdfs:comment>actual TOM in [kg]</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#isAwareOfConservationObjective -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#isAwareOfConservationObjective">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#RemotePilot"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#isNeccessaryOperation -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#isNeccessaryOperation">
+        <rdfs:comment>the operational purpose can only be achieved by overflying the protected area
+legitimate operational purpose</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#isOperatedForRecreationalPurpose -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#isOperatedForRecreationalPurpose">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#UnmannedAircraft"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#isOperatedForSportPurpose -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#isOperatedForSportPurpose">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#UnmannedAircraft"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#usesShortestRoute -->
+
+    <owl:DatatypeProperty rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#usesShortestRoute">
+        <rdfs:domain rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#Drone"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#AccidentSite -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#AccidentSite">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#Aerodrome -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#Aerodrome">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#Aircraft -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#Aircraft"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#Airport -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#Airport">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#Airspace -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#Airspace"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#Ballast -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#Ballast">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#BiologicalFacility -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#BiologicalFacility">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalObject"/>
+        <rdfs:comment>facilities that are used for activities subject to authorization of protection level 4 within the meaning of the Biological Agents Ordinance</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#CentralEnergyDistributionPlant -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#CentralEnergyDistributionPlant">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#CentralEnergyGeneration -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#CentralEnergyGeneration">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#ControlZone -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#ControlZone">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#DeploymentSite -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#DeploymentSite">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalObject"/>
+        <rdfs:comment>sites where security authorities and organizations are deployed as well as over mobile facilities and troops of the Federal Armed Forces within the context of notified manoeuvres and exercises</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#DesertedArea -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#DesertedArea">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalZone"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#Distance -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#Distance"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#Drone -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#Drone">
+        <owl:equivalentClass rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#UnmannedAircraft"/>
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#Aircraft"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#FederalTrunkRoad -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#FederalTrunkRoad">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#FederalWaterway -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#FederalWaterway">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#Fuel -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#Fuel">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalObject -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalObject">
+        <rdfs:comment>Objects that define Geographical Zones from §21h</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalZone -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalZone">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#Airspace"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#GovernmentalProperty -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#GovernmentalProperty">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalObject"/>
+        <rdfs:comment>property that is the seat of constitutional bodies of the Federal Government and the federal states or top-level and higher-level Federal Government and federal state authorities or diplomatic missions or consular offices and international organizations under international law as well as property of the police and other security authorities</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#Hospital -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#Hospital">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#IndustrialPlant -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#IndustrialPlant">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#MilitaryInstallation -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#MilitaryInstallation">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#MilitaryOrganization -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#MilitaryOrganization">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#NatureConservationArea -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#NatureConservationArea">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalObject"/>
+        <rdfs:comment>nature conservation areas within the meaning of section 23(1) of the Federal Nature Conservation Act, over national parks within the meaning of section 24 of the Federal Nature Conservation Act and over areas within the meaning of section 7(1) nos. (6) and (7) of the Federal Nature Conservation Act</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#Object -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#Object"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#Open -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#Open">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#OperatingCategory"/>
+        <rdfs:comment>(EU) 2019/947</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#OperatingCategory -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#OperatingCategory">
+        <rdfs:comment>According to (EU) 2019/947</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#Prison -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#Prison">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#RailwayInstallation -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#RailwayInstallation">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#RemotePilot -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#RemotePilot"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#ResidentialProperty -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#ResidentialProperty">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#RunwayCentreline -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#RunwayCentreline">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#SandBallast -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#SandBallast">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#Ballast"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#SecurePsychiatricUnit -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#SecurePsychiatricUnit">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#Ship -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#Ship"/>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#ShippingFacility -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#ShippingFacility">
+        <rdfs:comment>in particular locks, weirs, ship lifts and berths</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#Specific -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#Specific">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#OperatingCategory"/>
+        <rdfs:comment>(EU) 2019/947</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#SwimmingPool -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#SwimmingPool">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalObject"/>
+        <rdfs:comment>swimming pools, beaches and similar facilities</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#TemporaryGeographicalZone -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#TemporaryGeographicalZone">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalZone"/>
+        <rdfs:comment>Federal Ministry for Digital and Transport, or a federal authority designated by it, may define further geographical zones and specify details of the operation of unmanned aircraft</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#TowingBanner -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#TowingBanner">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#TowingRope -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#TowingRope">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#Object"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#UnmannedAircraft -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#UnmannedAircraft">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#Aircraft"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.hsu-ifa.de/ontologies/LuftVO#WaterBallast -->
+
+    <owl:Class rdf:about="http://www.hsu-ifa.de/ontologies/LuftVO#WaterBallast">
+        <rdfs:subClassOf rdf:resource="http://www.hsu-ifa.de/ontologies/LuftVO#Ballast"/>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
