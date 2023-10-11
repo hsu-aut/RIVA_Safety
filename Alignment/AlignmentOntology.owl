@@ -8,9 +8,107 @@
 
 <http://www.hsu-ifa.de/ontologies/AlignmentOntology> rdf:type owl:Ontology ;
                                                       owl:imports <https://raw.githubusercontent.com/hsu-aut/Commission-Delegated-Regulation-EU-2019-947-ODP/main/eu-regulation-2019-947.owl> ,
-                                                                  <https://raw.githubusercontent.com/hsu-aut/RIVA_Safety/main/ODPs/ODP_Air_DEU_LuftVO.owl> ,
                                                                   <https://raw.githubusercontent.com/hsu-aut/RIVA_Safety/main/ODPs/ApplicationOntology.owl> ,
-                                                                  <https://raw.githubusercontent.com/hsu-aut/RIVA_Safety/main/ODPs/DO_TrafficConstituents.owl> ;
+                                                                  <https://raw.githubusercontent.com/hsu-aut/RIVA_Safety/main/ODPs/DO_TrafficConstituents.owl> ,
+                                                                  <https://raw.githubusercontent.com/hsu-aut/RIVA_Safety/main/ODPs/ODP_Air_DEU_LuftVO.owl> ;
                                                       rdfs:comment "AlignmentOntology used for Rule-Based Verification of Automated and Autonomous Drones" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-947#hasDistance
+<http://w3id.org/hsu-aut/eu-regulation2019-947#hasDistance> owl:equivalentProperty <http://www.hsu-ifa.de/ontologies/LuftVO#hasDistance> .
+
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-947#isDropping
+<http://w3id.org/hsu-aut/eu-regulation2019-947#isDropping> owl:equivalentProperty <http://www.hsu-ifa.de/ontologies/LuftVO#isDropping> .
+
+
+###  http://www.hsu-ifa.de/ontologies/LuftVO#hasDistance
+
+###  http://www.hsu-ifa.de/ontologies/LuftVO#isDropping
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-947#Distance
+<http://w3id.org/hsu-aut/eu-regulation2019-947#Distance> owl:equivalentClass <http://www.hsu-ifa.de/ontologies/LuftVO#Distance> .
+
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-947#GeographicalZone
+<http://w3id.org/hsu-aut/eu-regulation2019-947#GeographicalZone> owl:equivalentClass <http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalZone> ;
+                                                                 rdfs:subClassOf <http://www.hsu-ifa.de/ontologies/LuftVO#Airspace> .
+
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-947#Human
+<http://w3id.org/hsu-aut/eu-regulation2019-947#Human> rdfs:subClassOf <http://www.hsu-ifa.de/ontologies/TrafficConstituents#TrafficObject> .
+
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-947#Material
+<http://w3id.org/hsu-aut/eu-regulation2019-947#Material> rdfs:subClassOf <http://www.hsu-ifa.de/ontologies/TrafficConstituents#TrafficObject> .
+
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-947#Obstacle
+<http://w3id.org/hsu-aut/eu-regulation2019-947#Obstacle> rdfs:subClassOf <http://www.hsu-ifa.de/ontologies/TrafficConstituents#Environment> .
+
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-947#SailPlanes
+<http://w3id.org/hsu-aut/eu-regulation2019-947#SailPlanes> rdfs:subClassOf <http://www.hsu-ifa.de/ontologies/LuftVO#Aircraft> .
+
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-947#UASOperationCategories
+<http://w3id.org/hsu-aut/eu-regulation2019-947#UASOperationCategories> rdfs:subClassOf <http://www.hsu-ifa.de/ontologies/UxVMission#Constraint> .
+
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-947#UAS_Open
+<http://w3id.org/hsu-aut/eu-regulation2019-947#UAS_Open> owl:equivalentClass <http://www.hsu-ifa.de/ontologies/LuftVO#Open> .
+
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-947#UAS_Specific
+<http://w3id.org/hsu-aut/eu-regulation2019-947#UAS_Specific> owl:equivalentClass <http://www.hsu-ifa.de/ontologies/LuftVO#Specific> .
+
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-947#UnmannedAircraftSystem
+<http://w3id.org/hsu-aut/eu-regulation2019-947#UnmannedAircraftSystem> owl:equivalentClass <http://www.hsu-ifa.de/ontologies/LuftVO#UnmannedAircraft> ;
+                                                                       rdfs:subClassOf <http://www.hsu-ifa.de/ontologies/LuftVO#Aircraft> .
+
+
+###  http://www.hsu-ifa.de/ontologies/LuftVO#Aircraft
+<http://www.hsu-ifa.de/ontologies/LuftVO#Aircraft> rdfs:subClassOf <http://www.hsu-ifa.de/ontologies/TrafficConstituents#TrafficMedium> .
+
+
+###  http://www.hsu-ifa.de/ontologies/LuftVO#Distance
+
+###  http://www.hsu-ifa.de/ontologies/LuftVO#Drone
+<http://www.hsu-ifa.de/ontologies/LuftVO#Drone> rdfs:subClassOf <http://www.hsu-ifa.de/ontologies/UxVMission#UxV> .
+
+
+###  http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalObject
+<http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalObject> rdfs:subClassOf <http://www.hsu-ifa.de/ontologies/TrafficConstituents#Environment> .
+
+
+###  http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalZone
+
+###  http://www.hsu-ifa.de/ontologies/LuftVO#Object
+<http://www.hsu-ifa.de/ontologies/LuftVO#Object> rdfs:subClassOf <http://www.hsu-ifa.de/ontologies/TrafficConstituents#TrafficObject> .
+
+
+###  http://www.hsu-ifa.de/ontologies/LuftVO#Open
+
+###  http://www.hsu-ifa.de/ontologies/LuftVO#Ship
+<http://www.hsu-ifa.de/ontologies/LuftVO#Ship> rdfs:subClassOf <http://www.hsu-ifa.de/ontologies/TrafficConstituents#TrafficMedium> .
+
+
+###  http://www.hsu-ifa.de/ontologies/LuftVO#Specific
+
+###  http://www.hsu-ifa.de/ontologies/LuftVO#UnmannedAircraft
+<http://www.hsu-ifa.de/ontologies/LuftVO#UnmannedAircraft> rdfs:subClassOf <http://www.hsu-ifa.de/ontologies/UxVMission#UxV> .
+
+
+###  http://www.hsu-ifa.de/ontologies/UxVMission#UxV
+<http://www.hsu-ifa.de/ontologies/UxVMission#UxV> rdfs:subClassOf <http://www.hsu-ifa.de/ontologies/TrafficConstituents#TrafficMedium> .
+
 
 ###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
