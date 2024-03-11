@@ -7,7 +7,7 @@
 @base <http://www.hsu-ifa.de/ontologies/ISO-12100_Safety> .
 
 <http://www.hsu-ifa.de/ontologies/ISO-12100_Safety> rdf:type owl:Ontology ;
-                                                     rdfs:comment "ODP to describe Saftey in a systemic Kontext based on ISO 12100:2010" .
+                                                     rdfs:comment "ODP to describe Saftey in a systemic context based on ISO 12100:2010" .
 
 #################################################################
 #    Data properties
