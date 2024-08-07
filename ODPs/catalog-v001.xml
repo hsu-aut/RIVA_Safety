@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1723019792187" name="http://www.hsu-ifa.de/ontologies/CEVNI" uri="ODP_Water_CEVNI.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1723019792187" name="http://www.hsu-ifa.de/ontologies/CORT1968" uri="ODP_Land_CORT1968.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1723019792187" name="http://www.hsu-ifa.de/ontologies/EU_2012-923" uri="ODP_Air_EU_2012-923.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1723019792187" name="http://www.hsu-ifa.de/ontologies/LuftVO" uri="ODP_Air_DEU_LuftVO.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1723019792187" name="http://www.hsu-ifa.de/ontologies/TrafficConstituents" uri="DO_TrafficConstituents.owl"/>
+    </group>
+</catalog>

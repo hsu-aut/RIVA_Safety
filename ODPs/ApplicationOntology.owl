@@ -1,9 +1,13 @@
 @prefix : <http://www.hsu-ifa.de/ontologies/ApplicationOntology#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix Safety: <http://www.hsu-ifa.de/ontologies/ISO-12100_Safety#> .
+@prefix Mission: <http://www.hsu-ifa.de/ontologies/UxVMission#> .
 @base <http://www.hsu-ifa.de/ontologies/ApplicationOntology#> .
 
 <http://www.hsu-ifa.de/ontologies/ApplicationOntology> rdf:type owl:Ontology ;
@@ -18,18 +22,18 @@
 #################################################################
 
 ###  http://www.hsu-ifa.de/ontologies/UxVMission#isWithinGeofence
-<http://www.hsu-ifa.de/ontologies/UxVMission#isWithinGeofence> rdfs:domain <http://www.w3.org/2003/01/geo/wgs84_pos#Point> .
+Mission:isWithinGeofence rdfs:domain wgs:Point .
 
 
 ###  http://www.w3.org/2003/01/geo/wgs84_pos#location
-<http://www.w3.org/2003/01/geo/wgs84_pos#location> rdfs:domain <http://www.hsu-ifa.de/ontologies/UxVMission#Constraint> ,
-                                                               <http://www.hsu-ifa.de/ontologies/UxVMission#GeoFence> ,
-                                                               <http://www.hsu-ifa.de/ontologies/UxVMission#Goal> ,
-                                                               <http://www.hsu-ifa.de/ontologies/UxVMission#SafetyLandingPoint> .
+wgs:location rdfs:domain Mission:Constraint ,
+                         Mission:GeoFence ,
+                         Mission:Goal ,
+                         Mission:SafetyLandingPoint .
 
 
 ###  http://www.w3.org/2006/time#hasTime
-<http://www.w3.org/2006/time#hasTime> rdfs:domain :PredictedPosition .
+time:hasTime rdfs:domain :PredictedPosition .
 
 
 #################################################################
@@ -37,15 +41,15 @@
 #################################################################
 
 ###  http://www.hsu-ifa.de/ontologies/ISO-12100_Safety#hasHarm
-<http://www.hsu-ifa.de/ontologies/ISO-12100_Safety#hasHarm> rdfs:domain <http://www.hsu-ifa.de/ontologies/UxVMission#UxV> .
+Safety:hasHarm rdfs:domain Mission:UxV .
 
 
 ###  http://www.hsu-ifa.de/ontologies/ISO-12100_Safety#hasHazard
-<http://www.hsu-ifa.de/ontologies/ISO-12100_Safety#hasHazard> rdfs:domain <http://www.hsu-ifa.de/ontologies/UxVMission#UxV> .
+Safety:hasHazard rdfs:domain Mission:UxV .
 
 
 ###  http://www.hsu-ifa.de/ontologies/ISO-12100_Safety#hasLevelOfRisk
-<http://www.hsu-ifa.de/ontologies/ISO-12100_Safety#hasLevelOfRisk> rdfs:domain <http://www.hsu-ifa.de/ontologies/UxVMission#UxV> .
+Safety:hasLevelOfRisk rdfs:domain Mission:UxV .
 
 
 #################################################################
@@ -54,55 +58,24 @@
 
 ###  http://www.hsu-ifa.de/ontologies/ApplicationOntology#CurrentPosition
 :CurrentPosition rdf:type owl:Class ;
-                 rdfs:subClassOf <http://www.w3.org/2003/01/geo/wgs84_pos#Point> .
+                 rdfs:subClassOf wgs:Point ;
+                 rdfs:comment "CurrentPosition of an UxV" .
 
 
 ###  http://www.hsu-ifa.de/ontologies/ApplicationOntology#PredictedPosition
 :PredictedPosition rdf:type owl:Class ;
-                   rdfs:subClassOf <http://www.w3.org/2003/01/geo/wgs84_pos#Point> .
+                   rdfs:subClassOf wgs:Point ;
+                   rdfs:comment "PredictedPosition of an UxV" .
 
 
 #################################################################
-#    Rules
+#    Individuals
 #################################################################
 
-:slp rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+###  http://www.hsu-ifa.de/ontologies/ApplicationOntology#CurrentTime
+:CurrentTime rdf:type owl:NamedIndividual ,
+                      time:Instant ;
+             time:inXSDDateTimeStamp "2024-08-07T09:59:50+02:00"^^xsd:dateTime .
 
-:m rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
-
-[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
-   rdfs:comment "A Mission is invlaid if SLP is not within Geofence" ;
-   rdfs:label "S1" ;
-   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
-   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.hsu-ifa.de/ontologies/UxVMission#isWithinMissionGeoFence> ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> :slp ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> "false"^^xsd:boolean
-                                                     ] ;
-                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
-                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.hsu-ifa.de/ontologies/UxVMission#Mission> ;
-                                                                  <http://www.w3.org/2003/11/swrl#argument1> :m
-                                                                ] ;
-                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
-                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.hsu-ifa.de/ontologies/UxVMission#hasSLP> ;
-                                                                             <http://www.w3.org/2003/11/swrl#argument1> :m ;
-                                                                             <http://www.w3.org/2003/11/swrl#argument2> :slp
-                                                                           ] ;
-                                                                 rdf:rest rdf:nil
-                                                               ]
-                                                    ]
-                                         ] ;
-   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
-                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
-                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.hsu-ifa.de/ontologies/UxVMission#isValidMission> ;
-                                                       <http://www.w3.org/2003/11/swrl#argument1> :m ;
-                                                       <http://www.w3.org/2003/11/swrl#argument2> "false"^^xsd:boolean
-                                                     ] ;
-                                           rdf:rest rdf:nil
-                                         ]
- ] .
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
