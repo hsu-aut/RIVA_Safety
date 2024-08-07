@@ -1,0 +1,1603 @@
+@prefix : <http://www.hsu-ifa.de/ontologies/AlignmentOntology#> .
+@prefix do: <http://www.hsu-ifa.de/ontologies/TrafficConstituents#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix wgs: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix Appl: <http://www.hsu-ifa.de/ontologies/ApplicationOntology#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix eu923: <http://www.hsu-ifa.de/ontologies/EU_2012-923#> .
+@prefix eu945: <http://w3id.org/hsu-aut/eu-regulation2019-945#> .
+@prefix eu947: <http://w3id.org/hsu-aut/eu-regulation2019-947#> .
+@prefix LuftVO: <http://www.hsu-ifa.de/ontologies/LuftVO#> .
+@prefix Safety: <http://www.hsu-ifa.de/ontologies/ISO-12100_Safety#> .
+@prefix eu1058: <http://www.hsu-ifa.de/ontologies/eu-regulation2020-1058#> .
+@prefix Mission: <http://www.hsu-ifa.de/ontologies/UxVMission#> .
+@base <http://www.hsu-ifa.de/ontologies/AlignmentOntology#> .
+
+<http://www.hsu-ifa.de/ontologies/AlignmentOntology> rdf:type owl:Ontology ;
+                                                      owl:imports <http://www.hsu-ifa.de/ontologies/EU_2012-923> ,
+                                                                  <http://www.hsu-ifa.de/ontologies/eu-regulation2020-1058/2.1.0> ,
+                                                                  <https://raw.githubusercontent.com/hsu-aut/Commission-Delegated-Regulation-EU-2019-947-ODP/main/eu-regulation-2019-947.owl> ,
+                                                                  <https://raw.githubusercontent.com/hsu-aut/RIVA_Safety/main/ODPs/ApplicationOntology.owl> ,
+                                                                  <https://raw.githubusercontent.com/hsu-aut/RIVA_Safety/main/ODPs/DO_TrafficConstituents.owl> ,
+                                                                  <https://raw.githubusercontent.com/hsu-aut/RIVA_Safety/main/ODPs/ODP_Air_DEU_LuftVO.owl> ;
+                                                      rdfs:comment "AlignmentOntology used for Rule-Based Verification of Automated and Autonomous Drones" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-945#hasDistance
+eu945:hasDistance owl:equivalentProperty eu947:hasDistance .
+
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-947#hasDistance
+eu947:hasDistance owl:equivalentProperty LuftVO:hasDistance .
+
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-947#isDropping
+eu947:isDropping owl:equivalentProperty LuftVO:isDropping .
+
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-947#isOverflying
+eu947:isOverflying owl:equivalentProperty LuftVO:isOver .
+
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-947#operatesInCategory
+eu947:operatesInCategory owl:equivalentProperty LuftVO:hasOperatingCategory .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-945#hasMTOM
+eu945:hasMTOM owl:equivalentProperty eu947:hasMaximumTakeOffMass .
+
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-945#hasMaxSpeed
+eu945:hasMaxSpeed owl:equivalentProperty eu947:hasMaximumOperatingSpeed .
+
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-947#hasHeightRelative
+eu947:hasHeightRelative rdfs:subPropertyOf :hasAltitude .
+
+
+###  http://www.hsu-ifa.de/ontologies/AlignmentOntology#hasAltitude
+:hasAltitude rdf:type owl:DatatypeProperty .
+
+
+###  http://www.hsu-ifa.de/ontologies/LuftVO#hasHeightAboveGround
+LuftVO:hasHeightAboveGround rdfs:subPropertyOf :hasAltitude .
+
+
+###  http://www.w3.org/2003/01/geo/wgs84_pos#alt
+wgs:alt rdfs:subPropertyOf :hasAltitude .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-945#UAS
+eu945:UAS owl:equivalentClass LuftVO:Drone ;
+          rdfs:subClassOf LuftVO:Aircraft .
+
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-947#Distance
+eu947:Distance owl:equivalentClass LuftVO:Distance .
+
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-947#GeographicalZone
+eu947:GeographicalZone owl:equivalentClass LuftVO:GeographicalZone ;
+                       rdfs:subClassOf LuftVO:Airspace .
+
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-947#Human
+eu947:Human rdfs:subClassOf do:TrafficObject .
+
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-947#Material
+eu947:Material rdfs:subClassOf do:TrafficObject .
+
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-947#Obstacle
+eu947:Obstacle rdfs:subClassOf do:Environment .
+
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-947#SailPlanes
+eu947:SailPlanes rdfs:subClassOf LuftVO:Aircraft .
+
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-947#UASOperationCategories
+eu947:UASOperationCategories rdfs:subClassOf Mission:Constraint .
+
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-947#UAS_Open
+eu947:UAS_Open owl:equivalentClass LuftVO:Open .
+
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-947#UAS_Specific
+eu947:UAS_Specific owl:equivalentClass LuftVO:Specific .
+
+
+###  http://w3id.org/hsu-aut/eu-regulation2019-947#UnmannedAircraftSystem
+eu947:UnmannedAircraftSystem owl:equivalentClass LuftVO:UnmannedAircraft ;
+                             rdfs:subClassOf LuftVO:Aircraft .
+
+
+###  http://www.hsu-ifa.de/ontologies/LuftVO#Aircraft
+LuftVO:Aircraft rdfs:subClassOf do:TrafficMedium .
+
+
+###  http://www.hsu-ifa.de/ontologies/LuftVO#Drone
+LuftVO:Drone rdfs:subClassOf Mission:UxV .
+
+
+###  http://www.hsu-ifa.de/ontologies/LuftVO#GeographicalObject
+LuftVO:GeographicalObject rdfs:subClassOf do:Environment .
+
+
+###  http://www.hsu-ifa.de/ontologies/LuftVO#Object
+LuftVO:Object rdfs:subClassOf do:TrafficObject .
+
+
+###  http://www.hsu-ifa.de/ontologies/LuftVO#Ship
+LuftVO:Ship rdfs:subClassOf do:TrafficMedium .
+
+
+###  http://www.hsu-ifa.de/ontologies/LuftVO#UnmannedAircraft
+LuftVO:UnmannedAircraft rdfs:subClassOf Mission:UxV .
+
+
+###  http://www.hsu-ifa.de/ontologies/UxVMission#UxV
+Mission:UxV rdfs:subClassOf do:TrafficMedium .
+
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean
+] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean
+ ] .
+
+#################################################################
+#    Rules
+#################################################################
+
+:myUAV rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:dim rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:alt rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:cat1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:cat2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:mass rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:person rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:d rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:horizontaldist rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:speed rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:twosecrange rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:myUAV1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:myUAV2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:vdist rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:hdist rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:hospital rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:currentpos rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:dist rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:predpos rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:AV1 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:AV2 rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:chead rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:ahead rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:ccourse rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:rearcourse rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:house rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:mytime rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:hourvalue rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+:height rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Too little distance to an uninvolved Person" ;
+   rdfs:label "947 A3 Uninvolved Person min Distance" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> eu947:UnmannedAircraftSystem ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :myUAV
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> LuftVO:hasOperatingCategory ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> eu947:UAS_Open_A3
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#classPredicate> eu947:UninvolvedPerson ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :person
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#classPredicate> eu947:Distance ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :d
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> eu947:hasDistance ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> :d
+                                                                                                 ] ;
+                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#propertyPredicate> eu947:hasDistance ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument1> :person ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument2> :d
+                                                                                                            ] ;
+                                                                                                  rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                             rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#propertyPredicate> eu947:hasDistanceHorizontal ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#argument1> :d ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#argument2> :horizontaldist
+                                                                                                                       ] ;
+                                                                                                             rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                        rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                                                                 rdf:first :horizontaldist ;
+                                                                                                                                                                                 rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                                            rdf:first 30.0 ;
+                                                                                                                                                                                            rdf:rest rdf:nil
+                                                                                                                                                                                          ]
+                                                                                                                                                                               ]
+                                                                                                                                  ] ;
+                                                                                                                        rdf:rest rdf:nil
+                                                                                                                      ]
+                                                                                                           ]
+                                                                                                ]
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasRiskLevelHigh ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasMechanicalHazard ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> "Das UAV hält einen zu geringen Abstzand zu einer Person"
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Set the minimum horizontal Distance to 10m if vertical Distance is greater than 20m" ;
+   rdfs:label "selfmade min Distance to other UAV" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> eu947:UnmannedAircraftSystem ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :myUAV1
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> eu947:UnmannedAircraftSystem ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :myUAV2
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#classPredicate> eu947:Distance ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :d
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> eu947:hasDistance ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :myUAV1 ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> :d
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> eu947:hasDistance ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> :myUAV2 ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> :d
+                                                                                                 ] ;
+                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#propertyPredicate> eu947:hasDistanceVertical ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument1> :d ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument2> :vdist
+                                                                                                            ] ;
+                                                                                                  rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                             rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                                                      rdf:first :vdist ;
+                                                                                                                                                                      rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                                 rdf:first 20.0 ;
+                                                                                                                                                                                 rdf:rest rdf:nil
+                                                                                                                                                                               ]
+                                                                                                                                                                    ]
+                                                                                                                       ] ;
+                                                                                                             rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                        rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#propertyPredicate> eu947:hasDistanceHorizontal ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#argument1> :d ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#argument2> :hdist
+                                                                                                                                  ] ;
+                                                                                                                        rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                   rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                               <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan> ;
+                                                                                                                                               <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                                                                            rdf:first :hdist ;
+                                                                                                                                                                                            rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                                                       rdf:first 10.0 ;
+                                                                                                                                                                                                       rdf:rest rdf:nil
+                                                                                                                                                                                                     ]
+                                                                                                                                                                                          ]
+                                                                                                                                             ] ;
+                                                                                                                                   rdf:rest rdf:nil
+                                                                                                                                 ]
+                                                                                                                      ]
+                                                                                                           ]
+                                                                                                ]
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasMechanicalHazard ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :myUAV1 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "Das UAV befindet sich zu nah an einem anderen UAV"
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasRiskLevelHigh ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :myUAV1 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "max characteristik dimension of C3 UAV to 3m" ;
+   rdfs:label "945 max dimension C3-UAV" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> eu945:C3 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :myUAV
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> eu947:hasCharacteristicDimension ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :dim
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :dim ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 3.0 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasMaterialOrSubstanceHazard ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "Das UAV hat die maximal zulässige Dimesnion überschritten"
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasRiskLevelMedium ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "UAV in Category Open have to be operated in VLOS or ELOS" ;
+   rdfs:label "947 Open UAV in BVLOS" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> eu947:UAS_Open ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :myUAV
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> eu947:isBVLOS-Mode ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasEnvironmentRelatedHazard ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "Der Betrieb eines UAV in der offenen Kategorie in BVLOS ist verboten"
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasRiskLevelMedium ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "CurrentPosition SpecificUAV close to Hospital" ;
+   rdfs:label "LuftVO Hospital CurrentPosition" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> LuftVO:Hospital ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :hospital
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> LuftVO:Distance ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :d
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> LuftVO:hasDistance ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :hospital ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :d
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#classPredicate> LuftVO:UnmannedAircraft ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :myUAV
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> LuftVO:hasOperatingCategory ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> eu947:UAS_Specific
+                                                                                                 ] ;
+                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#classPredicate> Appl:CurrentPosition ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument1> :currentpos
+                                                                                                            ] ;
+                                                                                                  rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                             rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#propertyPredicate> wgs:location ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#argument2> :currentpos
+                                                                                                                       ] ;
+                                                                                                             rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                        rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#propertyPredicate> LuftVO:hasDistance ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#argument1> :currentpos ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#argument2> :d
+                                                                                                                                  ] ;
+                                                                                                                        rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                   rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                                                               <http://www.w3.org/2003/11/swrl#propertyPredicate> eu947:hasDistanceHorizontal ;
+                                                                                                                                               <http://www.w3.org/2003/11/swrl#argument1> :d ;
+                                                                                                                                               <http://www.w3.org/2003/11/swrl#argument2> :dist
+                                                                                                                                             ] ;
+                                                                                                                                   rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                              rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                                          <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan> ;
+                                                                                                                                                          <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                                                                                       rdf:first :dist ;
+                                                                                                                                                                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                                                                  rdf:first 100.0 ;
+                                                                                                                                                                                                                  rdf:rest rdf:nil
+                                                                                                                                                                                                                ]
+                                                                                                                                                                                                     ]
+                                                                                                                                                        ] ;
+                                                                                                                                              rdf:rest rdf:nil
+                                                                                                                                            ]
+                                                                                                                                 ]
+                                                                                                                      ]
+                                                                                                           ]
+                                                                                                ]
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasMajorHarm ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasRiskLevelHigh ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Predicted Position close to Hospital" ;
+   rdfs:label "LuftVO Hospital PredictedPosition" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> LuftVO:Hospital ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :hospital
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> LuftVO:Distance ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :d
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> LuftVO:hasDistance ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :hospital ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :d
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#classPredicate> LuftVO:UnmannedAircraft ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :myUAV
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> LuftVO:hasOperatingCategory ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> eu947:UAS_Specific
+                                                                                                 ] ;
+                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#classPredicate> Appl:PredictedPosition ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument1> :predpos
+                                                                                                            ] ;
+                                                                                                  rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                             rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#propertyPredicate> wgs:location ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#argument2> :predpos
+                                                                                                                       ] ;
+                                                                                                             rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                        rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#propertyPredicate> LuftVO:hasDistance ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#argument1> :predpos ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#argument2> :d
+                                                                                                                                  ] ;
+                                                                                                                        rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                   rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                                                               <http://www.w3.org/2003/11/swrl#propertyPredicate> eu947:hasDistanceHorizontal ;
+                                                                                                                                               <http://www.w3.org/2003/11/swrl#argument1> :d ;
+                                                                                                                                               <http://www.w3.org/2003/11/swrl#argument2> :dist
+                                                                                                                                             ] ;
+                                                                                                                                   rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                              rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                                          <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan> ;
+                                                                                                                                                          <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                                                                                       rdf:first :dist ;
+                                                                                                                                                                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                                                                  rdf:first 100.0 ;
+                                                                                                                                                                                                                  rdf:rest rdf:nil
+                                                                                                                                                                                                                ]
+                                                                                                                                                                                                     ]
+                                                                                                                                                        ] ;
+                                                                                                                                              rdf:rest rdf:nil
+                                                                                                                                            ]
+                                                                                                                                 ]
+                                                                                                                      ]
+                                                                                                           ]
+                                                                                                ]
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasEnvironmentRelatedHazard ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasRiskLevelMedium ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Aircraft that has other to the right shall give way" ;
+   rdfs:label "923 Converging" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> eu923:Aircraft ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :AV1
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> eu923:Aircraft ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :AV2
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> eu923:has_Approach_Converging_Right ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :AV1 ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :AV2
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> eu923:has_Current_Heading ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :AV1 ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> :chead
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> eu923:has_Altered_Heading ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> :AV1 ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> :ahead
+                                                                                                 ] ;
+                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#equal> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#arguments> ( :ahead
+                                                                                                                                                           :chead
+                                                                                                                                                         )
+                                                                                                            ] ;
+                                                                                                  rdf:rest rdf:nil
+                                                                                                ]
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasEnvironmentRelatedHazard ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :AV1 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "Ausweichen. Ein Zusammenstoß mit einem anderen Flugobjekt droht"
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasRiskLevelVeryHigh ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :AV1 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Aircraft has to alter heading to right when Approach Head-On" ;
+   rdfs:label "923 Approach Head-On" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> eu923:Aircraft ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :AV1
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> eu923:Aircraft ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :AV2
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> eu923:has_Approach_Head-On ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :AV1 ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :AV2
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> eu923:has_Current_Course ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :AV1 ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> :ccourse
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> eu923:has_Current_Heading ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> :AV1 ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> :chead
+                                                                                                 ] ;
+                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#propertyPredicate> eu923:has_Altered_Heading ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument1> :AV1 ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument2> :ahead
+                                                                                                            ] ;
+                                                                                                  rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                             rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#subtract> ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                                                      rdf:first :ccourse ;
+                                                                                                                                                                      rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                                 rdf:first 180.0 ;
+                                                                                                                                                                                 rdf:rest ( :rearcourse
+                                                                                                                                                                                          )
+                                                                                                                                                                               ]
+                                                                                                                                                                    ]
+                                                                                                                       ] ;
+                                                                                                             rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                        rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#arguments> ( :ahead
+                                                                                                                                                                                 :rearcourse
+                                                                                                                                                                               )
+                                                                                                                                  ] ;
+                                                                                                                        rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                   rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                               <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan> ;
+                                                                                                                                               <http://www.w3.org/2003/11/swrl#arguments> ( :ahead
+                                                                                                                                                                                            :ccourse
+                                                                                                                                                                                          )
+                                                                                                                                             ] ;
+                                                                                                                                   rdf:rest rdf:nil
+                                                                                                                                 ]
+                                                                                                                      ]
+                                                                                                           ]
+                                                                                                ]
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasEnvironmentRelatedHazard ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :AV1 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "Ein Zusammenstoß mit einem anderen Flugobjekt droht"
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasRiskLevelVeryHigh ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :AV1 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Aircraft shall not alter heading when being Overtaken" ;
+   rdfs:label "923 being overtaken" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> eu923:Aircraft ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :AV1
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> eu923:Aircraft ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :AV2
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> eu923:is_being_overtaken ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :AV1 ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :AV2
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> eu923:has_Current_Heading ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :AV1 ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> :chead
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> eu923:has_Altered_Heading ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> :AV1 ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> :ahead
+                                                                                                 ] ;
+                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#equal> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#arguments> ( :ahead
+                                                                                                                                                           :chead
+                                                                                                                                                         )
+                                                                                                            ] ;
+                                                                                                  rdf:rest rdf:nil
+                                                                                                ]
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasEnvironmentRelatedHazard ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :AV1 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "Beim überholtwerden darf die Orientierung nicht geändert werden"
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasRiskLevelVeryHigh ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :AV1 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ]
+ ] .
+
+[ rdfs:comment "Set max altitude of C3 UAV to 120m" ;
+   rdfs:label "945 max altitude C3-UAV" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> eu945:C3 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :myUAV
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasAltitude ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :alt
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :alt ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 120.0 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasEnvironmentRelatedHazard ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "Das UAV hat die Maximalhöhe überschritten"
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasRiskLevelMedium ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Aircraft has to alter heading to right when Overtaking another" ;
+   rdfs:label "923 Overtaking" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> eu923:Aircraft ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :AV1
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> eu923:Aircraft ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :AV2
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> eu923:is_overtaking ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :AV1 ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :AV2
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> eu923:has_Current_Course ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :AV1 ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> :ccourse
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> eu923:has_Current_Heading ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> :AV1 ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> :chead
+                                                                                                 ] ;
+                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#propertyPredicate> eu923:has_Altered_Heading ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument1> :AV1 ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument2> :ahead
+                                                                                                            ] ;
+                                                                                                  rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                             rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#subtract> ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                                                      rdf:first :ccourse ;
+                                                                                                                                                                      rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                                 rdf:first 180.0 ;
+                                                                                                                                                                                 rdf:rest ( :rearcourse
+                                                                                                                                                                                          )
+                                                                                                                                                                               ]
+                                                                                                                                                                    ]
+                                                                                                                       ] ;
+                                                                                                             rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                        rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#arguments> ( :ahead
+                                                                                                                                                                                 :rearcourse
+                                                                                                                                                                               )
+                                                                                                                                  ] ;
+                                                                                                                        rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                   rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                               <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan> ;
+                                                                                                                                               <http://www.w3.org/2003/11/swrl#arguments> ( :ahead
+                                                                                                                                                                                            :ccourse
+                                                                                                                                                                                          )
+                                                                                                                                             ] ;
+                                                                                                                                   rdf:rest rdf:nil
+                                                                                                                                 ]
+                                                                                                                      ]
+                                                                                                           ]
+                                                                                                ]
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasEnvironmentRelatedHazard ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :AV1 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "Ein Zusammenstoß mit einem anderen Flugobjekt droht"
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasRiskLevelVeryHigh ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :AV1 ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "No operation of UAV above Residential area at night" ;
+   rdfs:label "LuftVO ResidentialArea - Time 1v2" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> LuftVO:Drone ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :myUAV
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> LuftVO:hasOperatingCategory ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> eu947:UAS_Specific
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#classPredicate> LuftVO:ResidentialProperty ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :house
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> LuftVO:isFlyingOver ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> :house
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#classPredicate> time:Instant ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> Appl:CurrentTime
+                                                                                                 ] ;
+                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#propertyPredicate> time:xsdDateTime ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument1> Appl:CurrentTime ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument2> :mytime
+                                                                                                            ] ;
+                                                                                                  rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                             rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#substring> ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                                                      rdf:first :mytime ;
+                                                                                                                                                                      rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                                 rdf:first 11 ;
+                                                                                                                                                                                 rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                                            rdf:first 2 ;
+                                                                                                                                                                                            rdf:rest ( :hourvalue
+                                                                                                                                                                                                     )
+                                                                                                                                                                                          ]
+                                                                                                                                                                               ]
+                                                                                                                                                                    ]
+                                                                                                                       ] ;
+                                                                                                             rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                        rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThanOrEqual> ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                                                                 rdf:first :hourvalue ;
+                                                                                                                                                                                 rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                                            rdf:first 22 ;
+                                                                                                                                                                                            rdf:rest rdf:nil
+                                                                                                                                                                                          ]
+                                                                                                                                                                               ]
+                                                                                                                                  ] ;
+                                                                                                                        rdf:rest rdf:nil
+                                                                                                                      ]
+                                                                                                           ]
+                                                                                                ]
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasRiskLevelMedium ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasEnvironmentRelatedHazard ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> "Das UAV überfliegt ein Wohngebiet zur Nachtzeit"
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "No operation of UAV above Residential area at night" ;
+   rdfs:label "LuftVO ResidentialArea - Time 2v2" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> LuftVO:Drone ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :myUAV
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> LuftVO:hasOperatingCategory ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> eu947:UAS_Specific
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#classPredicate> LuftVO:ResidentialProperty ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :house
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> LuftVO:isFlyingOver ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> :house
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#classPredicate> time:Instant ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> Appl:CurrentTime
+                                                                                                 ] ;
+                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#propertyPredicate> time:xsdDateTime ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument1> Appl:CurrentTime ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument2> :mytime
+                                                                                                            ] ;
+                                                                                                  rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                             rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#substring> ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                                                      rdf:first :mytime ;
+                                                                                                                                                                      rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                                 rdf:first 11 ;
+                                                                                                                                                                                 rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                                            rdf:first 2 ;
+                                                                                                                                                                                            rdf:rest ( :hourvalue
+                                                                                                                                                                                                     )
+                                                                                                                                                                                          ]
+                                                                                                                                                                               ]
+                                                                                                                                                                    ]
+                                                                                                                       ] ;
+                                                                                                             rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                        rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan> ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                                                                 rdf:first :hourvalue ;
+                                                                                                                                                                                 rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                                            rdf:first 6 ;
+                                                                                                                                                                                            rdf:rest rdf:nil
+                                                                                                                                                                                          ]
+                                                                                                                                                                               ]
+                                                                                                                                  ] ;
+                                                                                                                        rdf:rest rdf:nil
+                                                                                                                      ]
+                                                                                                           ]
+                                                                                                ]
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasRiskLevelMedium ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasEnvironmentRelatedHazard ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> "Das UAV überfliegt ein Wohngebiet zur Nachtzeit"
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "No operation of UAV above Residential area below 100m" ;
+   rdfs:label "LuftVO ResidentialArea - Height" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> LuftVO:Drone ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :myUAV
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> LuftVO:hasOperatingCategory ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> eu947:UAS_Specific
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#classPredicate> LuftVO:ResidentialProperty ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :house
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> LuftVO:isFlyingOver ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> :house
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> LuftVO:hasHeightAboveGround ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> :height
+                                                                                                 ] ;
+                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThan> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                                           rdf:first :height ;
+                                                                                                                                                           rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                      rdf:first 100.0 ;
+                                                                                                                                                                      rdf:rest rdf:nil
+                                                                                                                                                                    ]
+                                                                                                                                                         ]
+                                                                                                            ] ;
+                                                                                                  rdf:rest rdf:nil
+                                                                                                ]
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasRiskLevelMedium ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasEnvironmentRelatedHazard ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> "Das UAV überfliegt ein Wohngebiet in zu geringer Höhe"
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "C5 UAV has max speed of 5m s in SlowSpeedMode" ;
+   rdfs:label "1058 SlowSpeedMode" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> eu1058:C5 ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :myUAV
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> eu947:isLowSpeedMode ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "UAV shall only belong to one UAV-Category" ;
+   rdfs:label "947 double Category" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> eu945:UAS ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :myUAV
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> eu947:operatesInCategory ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :cat1
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> eu947:operatesInCategory ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> :cat2
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DifferentIndividualsAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :cat1 ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> :cat2
+                                                                                      ] ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasHazard ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "Das UAV operiert in zwei unterschiedlichen Betriebskategorien"
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasRiskLevelMedium ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Check MTOM" ;
+   rdfs:label "945 MTOM" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> eu945:UAS ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :myUAV
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> eu945:hasMass ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> :mass
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#greaterThan> ;
+                                                                             <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                          rdf:first :mass ;
+                                                                                                                          rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                     rdf:first 25.0 ;
+                                                                                                                                     rdf:rest rdf:nil
+                                                                                                                                   ]
+                                                                                                                        ]
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasMechanicalHazard ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "Das MTOM ist zu hoch"
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasRiskLevelMedium ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Too little distance to an uninvolved Person with respect to speed" ;
+   rdfs:label "947 A3 Uninvolved Person vs Speed" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> eu947:UnmannedAircraftSystem ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :myUAV
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> LuftVO:hasOperatingCategory ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> eu947:UAS_Open_A3
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#classPredicate> eu947:UninvolvedPerson ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :person
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#classPredicate> eu947:Distance ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :d
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> eu947:hasDistance ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> :d
+                                                                                                 ] ;
+                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#propertyPredicate> eu947:hasDistance ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument1> :person ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument2> :d
+                                                                                                            ] ;
+                                                                                                  rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                             rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#propertyPredicate> eu947:hasDistanceHorizontal ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#argument1> :d ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#argument2> :horizontaldist
+                                                                                                                       ] ;
+                                                                                                             rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                        rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#propertyPredicate> eu945:hasMaxSpeed ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#argument2> :speed
+                                                                                                                                  ] ;
+                                                                                                                        rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                   rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                               <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#multiply> ;
+                                                                                                                                               <http://www.w3.org/2003/11/swrl#arguments> [ rdf:type rdf:List ;
+                                                                                                                                                                                            rdf:first :twosecrange ;
+                                                                                                                                                                                            rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                                                       rdf:first :speed ;
+                                                                                                                                                                                                       rdf:rest [ rdf:type rdf:List ;
+                                                                                                                                                                                                                  rdf:first 2.0 ;
+                                                                                                                                                                                                                  rdf:rest rdf:nil
+                                                                                                                                                                                                                ]
+                                                                                                                                                                                                     ]
+                                                                                                                                                                                          ]
+                                                                                                                                             ] ;
+                                                                                                                                   rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                              rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                                          <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                                                                                                          <http://www.w3.org/2003/11/swrl#arguments> ( :horizontaldist
+                                                                                                                                                                                                       :twosecrange
+                                                                                                                                                                                                     )
+                                                                                                                                                        ] ;
+                                                                                                                                              rdf:rest rdf:nil
+                                                                                                                                            ]
+                                                                                                                                 ]
+                                                                                                                      ]
+                                                                                                           ]
+                                                                                                ]
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasRiskLevelHigh ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasMechanicalHazard ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> "Das UAV hält einen zu geringen Abstzand zu einer Person"
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ]
+ ] .
+
+[ <http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled> "true"^^xsd:boolean ;
+   rdfs:comment "Too little distance to an uninvolved Person with respect to the altitude" ;
+   rdfs:label "947 A3 Uninvolved Person vs Altitude" ;
+   rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> eu947:UnmannedAircraftSystem ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :myUAV
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> LuftVO:hasOperatingCategory ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> eu947:UAS_Open_A3
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#classPredicate> eu947:UninvolvedPerson ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> :person
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#classPredicate> eu947:Distance ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> :d
+                                                                                      ] ;
+                                                                            rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                       rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#propertyPredicate> eu947:hasDistance ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                                                   <http://www.w3.org/2003/11/swrl#argument2> :d
+                                                                                                 ] ;
+                                                                                       rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                  rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#propertyPredicate> eu947:hasDistance ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument1> :person ;
+                                                                                                              <http://www.w3.org/2003/11/swrl#argument2> :d
+                                                                                                            ] ;
+                                                                                                  rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                             rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#propertyPredicate> eu947:hasDistanceHorizontal ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#argument1> :d ;
+                                                                                                                         <http://www.w3.org/2003/11/swrl#argument2> :horizontaldist
+                                                                                                                       ] ;
+                                                                                                             rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                        rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasAltitude ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                                                                                    <http://www.w3.org/2003/11/swrl#argument2> :alt
+                                                                                                                                  ] ;
+                                                                                                                        rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                                                                                   rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#BuiltinAtom> ;
+                                                                                                                                               <http://www.w3.org/2003/11/swrl#builtin> <http://www.w3.org/2003/11/swrlb#lessThanOrEqual> ;
+                                                                                                                                               <http://www.w3.org/2003/11/swrl#arguments> ( :horizontaldist
+                                                                                                                                                                                            :alt
+                                                                                                                                                                                          )
+                                                                                                                                             ] ;
+                                                                                                                                   rdf:rest rdf:nil
+                                                                                                                                 ]
+                                                                                                                      ]
+                                                                                                           ]
+                                                                                                ]
+                                                                                     ]
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasRiskLevelHigh ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> Safety:hasMechanicalHazard ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> :myUAV ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> "Das UAV hält einen zu geringen Abstand zu einer Person"
+                                                                ] ;
+                                                      rdf:rest rdf:nil
+                                                    ]
+                                         ]
+ ] .
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
