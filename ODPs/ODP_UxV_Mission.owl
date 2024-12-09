@@ -140,7 +140,7 @@ UxVMission:isWithinMissionGeoFence rdf:type owl:DatatypeProperty ;
 
 ###  http://www.hsu-ifa.de/ontologies/UxVMission#Constraint
 UxVMission:Constraint rdf:type owl:Class ;
-                      rdfs:comment "Constraint of a Mission. A Constarint is something that must not be achieved" .
+                      rdfs:comment "Constraint of a Mission. A Constraint is something that must not be achieved" .
 
 
 ###  http://www.hsu-ifa.de/ontologies/UxVMission#GeoFence
